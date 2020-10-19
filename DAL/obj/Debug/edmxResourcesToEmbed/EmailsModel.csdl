@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="id_mail" />
+    </Key>
+    <Property Name="id_mail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="senter" Type="Int64" Nullable="false" />
+    <Property Name="reciever" Type="Int64" Nullable="false" />
+    <Property Name="subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="context" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sent_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="is_read" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Email__reciever__48CFD27E" FromRole="Emails" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK__Email__senter__47DBAE45" FromRole="Emails" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_passward" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_email_address" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Emails" Relationship="Self.FK__Email__reciever__48CFD27E" FromRole="Users" ToRole="Emails" />
+    <NavigationProperty Name="Emails1" Relationship="Self.FK__Email__senter__47DBAE45" FromRole="Users" ToRole="Emails" />
+  </EntityType>
+  <Association Name="FK__Email__reciever__48CFD27E">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Emails" Type="Self.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Emails">
+        <PropertyRef Name="reciever" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Email__senter__47DBAE45">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Emails" Type="Self.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Emails">
+        <PropertyRef Name="senter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmailsEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Emails" EntityType="Self.Email" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Email__reciever__48CFD27E" Association="Self.FK__Email__reciever__48CFD27E">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Emails" EntitySet="Emails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Email__senter__47DBAE45" Association="Self.FK__Email__senter__47DBAE45">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Emails" EntitySet="Emails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
