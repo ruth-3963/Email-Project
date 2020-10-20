@@ -31,5 +31,24 @@ namespace BL.Convert
                 user_email_address = userDTO.user_email_address
             };
         }
+        public static List<DAL.User> Users(List<UserDTO> userDTOs)
+        {
+            List<User> ud = new List<User>();
+            foreach (var item in userDTOs)
+            {
+                ud.Add(user(item));
+            }
+            return ud;
+        }
+        public static List<UserDTO> userDTOs (List<DAL.User> Users)
+        {
+            List<UserDTO> ud = new List<UserDTO>();
+            foreach (var item in Users)
+            {
+                ud.Add(userDTO(item));
+            }
+            return ud;
+        }
+
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Convert\EmailConverter.cs" />
     <Compile Include="Convert\UserConverter.cs" />
+    <Compile Include="EmailBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserBL.cs" />
   </ItemGroup>

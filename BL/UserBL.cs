@@ -11,7 +11,7 @@ namespace BL
     public class UserBL
 
     {
-        public static readonly EmailsEntities5 db = new EmailsEntities5();
+        public static  EmailsEntities db = new EmailsEntities();
 
         public static UserDTO AddUser(UserDTO userDTO)
         {
@@ -25,10 +25,20 @@ namespace BL
             }
             return null;
         }
+       
+
         public static UserDTO GetUserById(long id)
         {
             User user = db.Users.Where(x => x.id_user == id).FirstOrDefault();
+            if (user == null)
+                return null;
             return BL.Convert.UserConverter.userDTO(user);
+        }
+        public static List<UserDTO> GetAllUser()
+        {
+            List<User> users = db.Users.Select(x=>x).ToList();
+            
+            return BL.Convert.UserConverter.userDTOs(users);
         }
 
     }

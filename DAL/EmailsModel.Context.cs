@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmailsEntities5 : DbContext
+    public partial class EmailsEntities : DbContext
     {
-        public EmailsEntities5()
-            : base("name=EmailsEntities5")
+        public EmailsEntities()
+            : base("name=EmailsEntities")
         {
         }
     

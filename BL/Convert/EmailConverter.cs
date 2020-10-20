@@ -38,5 +38,23 @@ namespace BL.Convert
                 is_read = emailDTO.is_read
             };
         }
+        public static List<DAL.Email> Emails(List<EmailDTO> userDTOs)
+        {
+            List<Email> ud = new List<Email>();
+            foreach (var item in userDTOs)
+            {
+                ud.Add(Email(item));
+            }
+            return ud;
+        }
+        public static List<EmailDTO> EmailDTOs(List<DAL.Email> emails)
+        {
+            List<EmailDTO> ud = new List<EmailDTO>();
+            foreach (var item in emails)
+            {
+                ud.Add(EmailDTO(item));
+            }
+            return ud;
+        }
     }
 }

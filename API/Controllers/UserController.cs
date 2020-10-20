@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using BL;
 using DTO;
@@ -24,10 +25,16 @@ namespace API.Controllers
     }
     [HttpGet]
     [Route("{id}")]
+
     public IHttpActionResult GetUderById(long id)
     {
             return Ok(BL.UserBL.GetUserById(id));
     }
-
+        [HttpGet]
+        [Route("AllUsers")]
+        public List<UserDTO> GetAllUsers()
+        {
+            return BL.UserBL.GetAllUser();
+        }
     }
 }

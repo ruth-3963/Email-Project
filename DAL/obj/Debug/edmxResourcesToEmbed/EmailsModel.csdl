@@ -59,7 +59,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="EmailsEntities5" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EmailsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Emails" EntityType="Self.Email" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />

@@ -137,7 +137,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EmailsEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmailsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Emails" EntityType="Self.Email" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -155,7 +155,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EmailsModelStoreContainer" CdmEntityContainer="EmailsEntities5">
+        <EntityContainerMapping StorageEntityContainer="EmailsModelStoreContainer" CdmEntityContainer="EmailsEntities">
           <EntitySetMapping Name="Emails">
             <EntityTypeMapping TypeName="EmailsModel.Email">
               <MappingFragment StoreEntitySet="Emails">
