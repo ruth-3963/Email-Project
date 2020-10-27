@@ -8,3 +8,13 @@ C:\Users\3base270\source\repos\Emails1\DTO\obj\Debug\DTO.csproj.CoreCompileInput
 C:\Users\3base270\source\repos\Emails1\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\3base270\source\repos\Emails1\DTO\obj\Debug\DTO.dll
 C:\Users\3base270\source\repos\Emails1\DTO\obj\Debug\DTO.pdb
+C:\Users\3base270\ruth ilani\Emails1\DTO\bin\Debug\DTO.dll
+C:\Users\3base270\ruth ilani\Emails1\DTO\bin\Debug\DTO.pdb
+C:\Users\3base270\ruth ilani\Emails1\DTO\bin\Debug\Microsoft.Analytics.Interfaces.dll
+C:\Users\3base270\ruth ilani\Emails1\DTO\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+C:\Users\3base270\ruth ilani\Emails1\DTO\bin\Debug\Microsoft.Analytics.Types.dll
+C:\Users\3base270\ruth ilani\Emails1\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\3base270\ruth ilani\Emails1\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\3base270\ruth ilani\Emails1\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\3base270\ruth ilani\Emails1\DTO\obj\Debug\DTO.dll
+C:\Users\3base270\ruth ilani\Emails1\DTO\obj\Debug\DTO.pdb

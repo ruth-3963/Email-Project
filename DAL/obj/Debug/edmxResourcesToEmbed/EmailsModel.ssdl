@@ -5,8 +5,8 @@
       <PropertyRef Name="id_mail" />
     </Key>
     <Property Name="id_mail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="senter" Type="bigint" Nullable="false" />
-    <Property Name="reciever" Type="bigint" Nullable="false" />
+    <Property Name="senter" Type="varchar" MaxLength="320" Nullable="false" />
+    <Property Name="reciever" Type="varchar" MaxLength="320" Nullable="false" />
     <Property Name="subject" Type="nvarchar(max)" />
     <Property Name="context" Type="nvarchar(max)" />
     <Property Name="sent_date" Type="datetime" Nullable="false" />
@@ -24,31 +24,29 @@
   </EntityType>
   <EntityType Name="Users">
     <Key>
-      <PropertyRef Name="id_user" />
+      <PropertyRef Name="user_mail" />
     </Key>
-    <Property Name="id_user" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_mail" Type="varchar" MaxLength="320" Nullable="false" />
     <Property Name="user_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="user_passward" Type="nvarchar" MaxLength="50" />
-    <Property Name="user_email_address" Type="varchar" MaxLength="320" />
   </EntityType>
-  <Association Name="FK__Email__reciever__48CFD27E">
+  <Association Name="FK_Emails_Reciever">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Emails" Type="Self.Emails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
-        <PropertyRef Name="id_user" />
+        <PropertyRef Name="user_mail" />
       </Principal>
       <Dependent Role="Emails">
         <PropertyRef Name="reciever" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Email__senter__47DBAE45">
+  <Association Name="FK_Emails_Senter">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Emails" Type="Self.Emails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
-        <PropertyRef Name="id_user" />
+        <PropertyRef Name="user_mail" />
       </Principal>
       <Dependent Role="Emails">
         <PropertyRef Name="senter" />
@@ -59,11 +57,11 @@
     <EntitySet Name="Emails" EntityType="Self.Emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Email__reciever__48CFD27E" Association="Self.FK__Email__reciever__48CFD27E">
+    <AssociationSet Name="FK_Emails_Reciever" Association="Self.FK_Emails_Reciever">
       <End Role="Users" EntitySet="Users" />
       <End Role="Emails" EntitySet="Emails" />
     </AssociationSet>
-    <AssociationSet Name="FK__Email__senter__47DBAE45" Association="Self.FK__Email__senter__47DBAE45">
+    <AssociationSet Name="FK_Emails_Senter" Association="Self.FK_Emails_Senter">
       <End Role="Users" EntitySet="Users" />
       <End Role="Emails" EntitySet="Emails" />
     </AssociationSet>

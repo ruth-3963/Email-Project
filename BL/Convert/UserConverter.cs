@@ -14,10 +14,9 @@ namespace BL.Convert
         {
             return new UserDTO
             {
-                id_user = user.id_user,
+               
                 user_name = user.user_name,
-                user_passward = user.user_passward,
-                user_email_address = user.user_email_address
+                user_mail = user.user_mail
             };
         }
 
@@ -25,10 +24,9 @@ namespace BL.Convert
         {
             return new DAL.User
             {
-                id_user = userDTO.id_user,
+                
                 user_name = userDTO.user_name,
-                user_passward = userDTO.user_passward,
-                user_email_address = userDTO.user_email_address
+                user_mail = userDTO.user_mail
             };
         }
         public static List<DAL.User> Users(List<UserDTO> userDTOs)

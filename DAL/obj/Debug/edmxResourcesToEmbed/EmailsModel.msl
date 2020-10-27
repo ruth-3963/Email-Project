@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmailsModelStoreContainer" CdmEntityContainer="EmailsEntities">
+  <EntityContainerMapping StorageEntityContainer="EmailsModelStoreContainer" CdmEntityContainer="EmailsEntities1">
     <EntitySetMapping Name="Emails">
       <EntityTypeMapping TypeName="EmailsModel.Email">
         <MappingFragment StoreEntitySet="Emails">
@@ -28,10 +28,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="EmailsModel.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="user_mail" ColumnName="user_mail" />
           <ScalarProperty Name="user_name" ColumnName="user_name" />
-          <ScalarProperty Name="user_passward" ColumnName="user_passward" />
-          <ScalarProperty Name="user_email_address" ColumnName="user_email_address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

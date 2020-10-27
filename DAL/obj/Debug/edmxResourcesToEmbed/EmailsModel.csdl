@@ -5,14 +5,14 @@
       <PropertyRef Name="id_mail" />
     </Key>
     <Property Name="id_mail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="senter" Type="Int64" Nullable="false" />
-    <Property Name="reciever" Type="Int64" Nullable="false" />
+    <Property Name="senter" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="reciever" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="context" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="sent_date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="is_read" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK__Email__reciever__48CFD27E" FromRole="Emails" ToRole="Users" />
-    <NavigationProperty Name="User1" Relationship="Self.FK__Email__senter__47DBAE45" FromRole="Emails" ToRole="Users" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Emails_Reciever" FromRole="Emails" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Emails_Senter" FromRole="Emails" ToRole="Users" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -26,48 +26,46 @@
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="id_user" />
+      <PropertyRef Name="user_mail" />
     </Key>
-    <Property Name="id_user" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_mail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="user_passward" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="user_email_address" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Emails" Relationship="Self.FK__Email__reciever__48CFD27E" FromRole="Users" ToRole="Emails" />
-    <NavigationProperty Name="Emails1" Relationship="Self.FK__Email__senter__47DBAE45" FromRole="Users" ToRole="Emails" />
+    <NavigationProperty Name="Emails" Relationship="Self.FK_Emails_Reciever" FromRole="Users" ToRole="Emails" />
+    <NavigationProperty Name="Emails1" Relationship="Self.FK_Emails_Senter" FromRole="Users" ToRole="Emails" />
   </EntityType>
-  <Association Name="FK__Email__reciever__48CFD27E">
+  <Association Name="FK_Emails_Reciever">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="Emails" Type="Self.Email" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
-        <PropertyRef Name="id_user" />
+        <PropertyRef Name="user_mail" />
       </Principal>
       <Dependent Role="Emails">
         <PropertyRef Name="reciever" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Email__senter__47DBAE45">
+  <Association Name="FK_Emails_Senter">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="Emails" Type="Self.Email" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
-        <PropertyRef Name="id_user" />
+        <PropertyRef Name="user_mail" />
       </Principal>
       <Dependent Role="Emails">
         <PropertyRef Name="senter" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="EmailsEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EmailsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Emails" EntityType="Self.Email" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK__Email__reciever__48CFD27E" Association="Self.FK__Email__reciever__48CFD27E">
+    <AssociationSet Name="FK_Emails_Reciever" Association="Self.FK_Emails_Reciever">
       <End Role="Users" EntitySet="Users" />
       <End Role="Emails" EntitySet="Emails" />
     </AssociationSet>
-    <AssociationSet Name="FK__Email__senter__47DBAE45" Association="Self.FK__Email__senter__47DBAE45">
+    <AssociationSet Name="FK_Emails_Senter" Association="Self.FK_Emails_Senter">
       <End Role="Users" EntitySet="Users" />
       <End Role="Emails" EntitySet="Emails" />
     </AssociationSet>

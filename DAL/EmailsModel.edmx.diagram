@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4bd26888ec78453eaf7c221741b6ed33" Name="Diagram1">
+      <Diagram DiagramId="b33165abd6834bb980f91fe4d533a0f2" Name="Diagram1">
         <EntityTypeShape EntityType="EmailsModel.Email" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="EmailsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmailsModel.User" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="EmailsModel.FK__Email__reciever__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="EmailsModel.FK__Email__senter__47DBAE45" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EmailsModel.User" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="EmailsModel.FK_Emails_Reciever" ManuallyRouted="false" />
+        <AssociationConnector Association="EmailsModel.FK_Emails_Senter" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

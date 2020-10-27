@@ -11,25 +11,21 @@ namespace BL
     public class UserBL
 
     {
-        public static  EmailsEntities db = new EmailsEntities();
+        public static  EmailsEntities1 db = new EmailsEntities1();
 
-        public static UserDTO AddUser(UserDTO userDTO)
+        public static void AddUser(UserDTO userDTO)
         {
             User user = BL.Convert.UserConverter.user(userDTO);
             
             db.Users.Add(user);
+            db.SaveChanges();
 
-            if (db.SaveChanges() > 0)
-            {
-                return BL.Convert.UserConverter.userDTO(user);
-            }
-            return null;
         }
        
 
-        public static UserDTO GetUserById(long id)
+        public static UserDTO GetUserById(string user_mail)
         {
-            User user = db.Users.Where(x => x.id_user == id).FirstOrDefault();
+            User user = db.Users.Where(x => x.user_mail == user_mail).FirstOrDefault();
             if (user == null)
                 return null;
             return BL.Convert.UserConverter.userDTO(user);

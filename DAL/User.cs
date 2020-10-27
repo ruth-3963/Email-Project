@@ -21,10 +21,8 @@ namespace DAL
             this.Emails1 = new HashSet<Email>();
         }
     
-        public long id_user { get; set; }
+        public string user_mail { get; set; }
         public string user_name { get; set; }
-        public string user_passward { get; set; }
-        public string user_email_address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Email> Emails { get; set; }
